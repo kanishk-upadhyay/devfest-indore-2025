@@ -2,34 +2,37 @@
   <header class="header">
     <nav class="nav">
       <div class="logo-section">
-        
-        <router-link to="/" class="logo-text">DevFest</router-link>
+        <router-link to="/" class="logo-link">
+          <img src="@/assets/devfest-indore-header-logo.png" alt="DevFest Indore" class="logo-image" />
+        </router-link>
         <span class="location-tag">Indore</span>
       </div>
-      <ul class="nav-links">
-        <li>
-          <router-link to="/" class="nav-link" active-class="active">Home</router-link>
-        </li>
-        <li>
-          <router-link to="/agenda" class="nav-link" active-class="active">Agenda</router-link>
-        </li>
-        <li>
-          <router-link to="/speakers" class="nav-link" active-class="active">Speakers</router-link>
-        </li>
-        <li>
-          <router-link to="/badge" class="nav-link" active-class="active">Badge</router-link>
-        </li>
-        <li>
-          <router-link to="/sponsors" class="nav-link" active-class="active">Sponsors</router-link>
-        </li>
-        <li>
-          <router-link to="/team" class="nav-link" active-class="active">Team</router-link>
-        </li>
-        <li>
-          <router-link to="/faq" class="nav-link" active-class="active">FAQ</router-link>
-        </li>
-      </ul>
-      <button class="register-btn" @click="handleRegister">Register Now</button>
+      <div class="right-section">
+        <ul class="nav-links">
+          <li>
+            <router-link to="/" class="nav-link" active-class="active">Home</router-link>
+          </li>
+          <li>
+            <router-link to="/agenda" class="nav-link" active-class="active">Agenda</router-link>
+          </li>
+          <li>
+            <router-link to="/speakers" class="nav-link" active-class="active">Speakers</router-link>
+          </li>
+          <li>
+            <router-link to="/badge" class="nav-link" active-class="active">Badge</router-link>
+          </li>
+          <li>
+            <router-link to="/sponsors" class="nav-link" active-class="active">Sponsors</router-link>
+          </li>
+          <li>
+            <router-link to="/team" class="nav-link" active-class="active">Team</router-link>
+          </li>
+          <li>
+            <router-link to="/faq" class="nav-link" active-class="active">FAQ</router-link>
+          </li>
+        </ul>
+        <button class="register-btn" @click="handleRegister">Register Now</button>
+      </div>    
     </nav>
   </header>
 </template>
@@ -48,27 +51,35 @@ export default {
 <style scoped>
 .header {
   background-color: #ffffff;
-  padding: 1.5rem 2rem;
+  padding: 0.75rem 2rem;
   display: flex;
   justify-content: center;
 }
 
 .nav {
-  max-width: 1400px;
-  width: 100%;
+  width: 80%;
   background-color: #F0F0F0;
   border-radius: 50px;
-  padding: 0.75rem 2rem;
+  padding: 0.5rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+  overflow: hidden;
 }
 
 .logo-section {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .logo-icon {
@@ -81,45 +92,56 @@ export default {
   height: 24px;
 }
 
-.logo-text {
-  color: #333333;
-  font-size: 1.25rem;
-  font-weight: bold;
+.logo-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  transition: opacity 0.2s;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+.logo-image {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .location-tag {
   background-color: #ffffff;
   color: #333333;
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 50px;
   border: 1px solid #000000;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: normal;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 0.75rem;
   margin: 0;
   padding: 0;
   align-items: center;
-  flex: 1;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .nav-link {
   color: #333333;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  font-size: 0.9375rem;
+  padding: 0.4rem 0.875rem;
+  font-size: 0.875rem;
   font-weight: normal;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   border-radius: 50px;
   transition: background-color 0.2s;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -135,47 +157,85 @@ export default {
   background-color: #FBBC04;
   color: #333333;
   border: 1px solid #000000;
-  padding: 0.625rem 1.5rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 50px;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: bold;
   cursor: pointer;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .register-btn:hover {
   background-color: #F9AB00;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .nav-links {
-    gap: 1rem;
+    gap: 0.5rem;
   }
   
   .nav-link {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8125rem;
+  }
+  
+  .logo-image {
+    height: 28px;
+  }
+  
+  .right-section {
+    gap: 0.5rem;
+  }
+  
+  .register-btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.8125rem;
   }
 }
 
 @media (max-width: 768px) {
   .nav {
+    width: 95%;
     flex-wrap: wrap;
     padding: 1rem;
   }
   
-  .nav-links {
-    order: 3;
+  .right-section {
+    order: 2;
     width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
     margin-top: 1rem;
   }
   
+  .nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
   .register-btn {
-    order: 2;
+    width: 100%;
+  }
+  
+  .logo-image {
+    height: 26px;
+  }
+  
+  .location-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+  }
+  
+  .register-btn {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
   }
 }
 </style>
