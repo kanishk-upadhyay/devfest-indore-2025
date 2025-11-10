@@ -60,55 +60,41 @@
             This DevFest we are focusing on the technologies that are trending in the market and are in demand. Let's come together and learn about these technologies from industry leading experts.
           </p>
           <div class="tech-logos">
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Android_logo_2019_%28stacked%29.svg" alt="Android" />
+            <div class="tech-logo" title="Android">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android" @error="handleImageError" />
             </div>
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.svg" alt="Flutter" />
+            <div class="tech-logo" title="Flutter">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" @error="handleImageError" />
             </div>
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Firebase_Logo.svg" alt="Firebase" />
+            <div class="tech-logo" title="Firebase">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" @error="handleImageError" />
             </div>
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin" />
+            <div class="tech-logo" title="Kotlin">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" @error="handleImageError" />
             </div>
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Google_Cloud_logo.svg" alt="Google Cloud" />
+            <div class="tech-logo" title="Google Cloud">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" @error="handleImageError" />
             </div>
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Google_Maps_icon.svg" alt="Google Maps" />
+            <div class="tech-logo" title="Google Maps">
+              <img src="https://www.vectorlogo.zone/logos/google_maps/google_maps-icon.svg" alt="Google Maps" @error="handleImageError" />
             </div>
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+            <div class="tech-logo" title="Google Play">
+              <img src="https://www.vectorlogo.zone/logos/google_play/google_play-icon.svg" alt="Google Play" @error="handleImageError" />
             </div>
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow" />
+            <div class="tech-logo" title="TensorFlow">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" @error="handleImageError" />
             </div>
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Google_Analytics_logo.svg" alt="Google Analytics" />
+            <div class="tech-logo" title="Google Analytics">
+              <img src="https://www.vectorlogo.zone/logos/google_analytics/google_analytics-icon.svg" alt="Google Analytics" @error="handleImageError" />
             </div>
-            <div class="tech-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Assistant" />
+            <div class="tech-logo" title="Google Assistant">
+              <img src="https://www.vectorlogo.zone/logos/google_assistant/google_assistant-icon.svg" alt="Google Assistant" @error="handleImageError" />
             </div>
           </div>
         </div>
 
         <div class="devfest-branding-box">
-          <h3 class="devfest-title">{ DevFest }</h3>
-          <p class="devfest-subtitle">Indore</p>
-          <div class="devfest-logo-section">
-            <div class="gdg-logo">
-              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Left circle (blue/orange) -->
-                <circle cx="20" cy="30" r="12" fill="#4285F4"/>
-                <circle cx="20" cy="30" r="12" fill="#EA4335" opacity="0.7"/>
-                <!-- Right circle (yellow/green) overlapping -->
-                <circle cx="40" cy="30" r="12" fill="#FBBC04"/>
-                <circle cx="40" cy="30" r="12" fill="#34A853" opacity="0.7"/>
-              </svg>
-            </div>
-            <p class="gdg-text">Google Developer<br/>Groups</p>
-          </div>
+          <img src="@/assets/elements-expect-section /block-img.png" alt="DevFest Indore" class="block-image" />
         </div>
       </div>
     </div>
@@ -117,14 +103,68 @@
 
 <script>
 export default {
-  name: 'WhatToExpectSection'
+  name: 'WhatToExpectSection',
+  methods: {
+    handleImageError(event) {
+      // Fallback to a simple colored circle if image fails to load
+      const fallbackColors = {
+        'Android': '#3DDC84',
+        'Flutter': '#02569B',
+        'Firebase': '#FFCA28',
+        'Kotlin': '#7F52FF',
+        'Google Cloud': '#4285F4',
+        'Google Maps': '#34A853',
+        'Google Play': '#008FF7',
+        'TensorFlow': '#FF6F00',
+        'Google Analytics': '#FFC107',
+        'Google Assistant': '#4285F4'
+      };
+      
+      const alt = event.target.alt;
+      const color = fallbackColors[alt] || '#CCCCCC';
+      
+      // Try alternative source first
+      const alternativeSources = {
+        'Android': 'https://upload.wikimedia.org/wikipedia/commons/6/64/Android_logo_2019_%28stacked%29.svg',
+        'Flutter': 'https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.svg',
+        'Firebase': 'https://upload.wikimedia.org/wikipedia/commons/3/37/Firebase_Logo.svg',
+        'Kotlin': 'https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png',
+        'Google Cloud': 'https://upload.wikimedia.org/wikipedia/commons/5/50/Google_Cloud_logo.svg',
+        'Google Maps': 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Google_Maps_icon.svg',
+        'Google Play': 'https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg',
+        'TensorFlow': 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg',
+        'Google Analytics': 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Google_Analytics_logo.svg',
+        'Google Assistant': 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg'
+      };
+      
+      // If this is the first error, try alternative source
+      if (!event.target.dataset.retried) {
+        event.target.dataset.retried = 'true';
+        event.target.src = alternativeSources[alt] || event.target.src;
+        return;
+      }
+      
+      // If alternative also failed, show colored fallback
+      event.target.style.display = 'none';
+      const parent = event.target.parentElement;
+      if (parent && !parent.querySelector('.fallback-text')) {
+        parent.style.backgroundColor = color;
+        parent.style.border = 'none';
+        const fallback = document.createElement('div');
+        fallback.className = 'fallback-text';
+        fallback.style.cssText = 'width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: bold; text-align: center; padding: 5px;';
+        fallback.textContent = alt.substring(0, 2);
+        parent.appendChild(fallback);
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
 .what-to-expect-section {
   width: 100%;
-  padding: 2rem 1rem;
+  padding: 4rem 1rem 2rem 1rem;
   display: flex;
   justify-content: center;
   background-color: #ffffff;
@@ -132,7 +172,7 @@ export default {
 
 .what-to-expect-container {
   max-width: 1400px;
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -210,19 +250,19 @@ export default {
   border-radius: 12px;
   padding: 1.5rem;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .box-decorative {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -5px;
+  right: -5px;
   z-index: 1;
 }
 
 .box-decorative img {
   width: auto;
-  height: 60px;
+  height: 40px;
   display: block;
 }
 
@@ -245,7 +285,7 @@ export default {
 /* Bottom Section */
 .bottom-section {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2.5fr 0.8fr;
   gap: 1.5rem;
 }
 
@@ -253,23 +293,25 @@ export default {
   background-color: #E5E5E5;
   border: 1px solid #000000;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  justify-content: space-between;
 }
 
 .stay-updated-title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: bold;
   color: #000000;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.3;
 }
 
 .stay-updated-text {
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
   color: #000000;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -277,9 +319,12 @@ export default {
 
 .tech-logos {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
   align-items: center;
+  margin-top: 0.5rem;
+  justify-content: flex-start;
+  overflow-x: auto;
 }
 
 .tech-logo {
@@ -292,6 +337,7 @@ export default {
   justify-content: center;
   background-color: #ffffff;
   padding: 8px;
+  flex-shrink: 0;
 }
 
 .tech-logo img {
@@ -304,59 +350,30 @@ export default {
   background-color: #E5E5E5;
   border: 1px solid #000000;
   border-radius: 12px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.devfest-title {
-  font-size: 1.75rem;
-  font-weight: bold;
-  color: #000000;
-  margin: 0;
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
-
-.devfest-subtitle {
-  font-size: 1.25rem;
-  color: #000000;
-  margin: 0;
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
-
-.devfest-logo-section {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.gdg-logo {
-  width: 60px;
-  height: 60px;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  min-height: 200px;
+  max-height: 300px;
 }
 
-.gdg-logo svg {
-  width: 100%;
-  height: 100%;
-}
-
-.gdg-text {
-  font-size: 0.875rem;
-  color: #000000;
-  margin: 0;
-  line-height: 1.4;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+.block-image {
+  max-width: 95%;
+  max-height: 95%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .what-to-expect-container {
+    width: 90%;
+  }
+  
   .content-boxes {
     grid-template-columns: 1fr;
   }
@@ -368,7 +385,11 @@ export default {
 
 @media (max-width: 768px) {
   .what-to-expect-section {
-    padding: 1.5rem 1rem;
+    padding: 3rem 1rem 1.5rem 1rem;
+  }
+  
+  .what-to-expect-container {
+    width: 95%;
   }
 
   .main-title {
@@ -384,26 +405,46 @@ export default {
   }
 
   .stay-updated-box {
-    padding: 1.5rem;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  
+  .stay-updated-title {
+    font-size: 1.5rem;
+  }
+  
+  .stay-updated-text {
+    font-size: 0.95rem;
   }
 
   .devfest-branding-box {
-    padding: 1.5rem;
+    padding: 1rem;
+    min-height: 200px;
   }
 
   .tech-logos {
     gap: 0.75rem;
+    flex-wrap: wrap;
+    overflow-x: visible;
   }
 
   .tech-logo {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
   }
 }
 
 @media (max-width: 480px) {
   .what-to-expect-section {
-    padding: 1rem 0.75rem;
+    padding: 2.5rem 0.75rem 1rem 0.75rem;
+  }
+  
+  .what-to-expect-container {
+    width: 95%;
+  }
+  
+  .box-decorative img {
+    height: 35px;
   }
 
   .main-title {
@@ -427,17 +468,28 @@ export default {
     font-size: 0.8rem;
   }
 
+  .stay-updated-box {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+  
   .stay-updated-title {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
   }
 
   .stay-updated-text {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .tech-logos {
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    overflow-x: visible;
   }
 
   .tech-logo {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
   }
 }
 </style>

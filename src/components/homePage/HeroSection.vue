@@ -79,7 +79,7 @@ export default {
 
 .hero-container {
   max-width: 1400px;
-  width: 100%;
+  width: 80%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
@@ -238,6 +238,7 @@ export default {
   .hero-container {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    width: 90%;
   }
   
   /* Mobile order: left image (1), content (2), right image (3) */
@@ -276,6 +277,7 @@ export default {
   
   .hero-container {
     gap: 2rem;
+    width: 95%;
   }
   
   .hero-left-content {
@@ -315,6 +317,7 @@ export default {
   
   .hero-container {
     gap: 1.5rem;
+    width: 95%;
   }
   
   .hero-left {

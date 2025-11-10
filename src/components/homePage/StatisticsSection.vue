@@ -47,7 +47,7 @@ export default {
 
 .statistics-container {
   max-width: 1400px;
-  width: 100%;
+  width: 80%;
   background-color: #E5E5E5;
   border-radius: 16px;
   padding: 2.5rem 2rem 1rem 0;
@@ -149,6 +149,7 @@ export default {
   .statistics-container {
     flex-direction: column;
     padding: 1.5rem;
+    width: 90%;
   }
 
   .statistics-left {
@@ -183,6 +184,7 @@ export default {
   .statistics-container {
     padding: 1.25rem;
     gap: 1.5rem;
+    width: 95%;
   }
 
   .statistics-left {
@@ -223,6 +225,7 @@ export default {
     padding: 1rem;
     gap: 1rem;
     border-radius: 12px;
+    width: 95%;
   }
 
   .details-element {
