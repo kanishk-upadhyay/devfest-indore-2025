@@ -116,7 +116,6 @@ export default {
 }
 
 .stat-box {
-  background-color: #E5E5E5;
   border: 1px solid #000000;
   border-radius: 12px;
   padding: 2rem 1.5rem;
@@ -128,31 +127,19 @@ export default {
 }
 
 .stat-box-blue {
-  background-image: url('@/assets/blue.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-color: #B3E5FC;
 }
 
 .stat-box-pink {
-  background-image: url('@/assets/pink.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-color: #FFB3D9;
 }
 
 .stat-box-yellow {
-  background-image: url('@/assets/yellow.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-color: #FFF9C4;
 }
 
 .stat-box-green {
-  background-image: url('@/assets/green.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-color: #C8E6C9;
 }
 
 .stat-number {
