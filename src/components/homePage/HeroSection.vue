@@ -309,7 +309,7 @@ export default {
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: var(--padding-section-x) 0.75rem;
+    padding: 0.75rem var(--padding-section-x);
   }
   
   .hero-container {
